@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Student - Library Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+<style>
+{% include 'style.css' %}
+</style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            📚 My Library
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/students">Students</a></li>
+            <li><a href="/books">Books</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- Student Form -->
+
+    <section class="form-section">
+
+        <div class="form-container">
+
+            <h1>Add New Student</h1>
+
+            <p class="form-description">
+                Enter the student's information below.
+            </p>
+
+
+            <form method="POST" action="/add_student">
+
+                <label>Student Name</label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter student name"
+                    required
+                >
+
+
+                <label>Roll Number</label>
+
+                <input
+                    type="text"
+                    name="roll_no"
+                    placeholder="Enter roll number"
+                    required
+                >
+
+
+                <label>Course</label>
+
+                <input
+                    type="text"
+                    name="course"
+                    placeholder="Enter course"
+                    required
+                >
+
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter email"
+                >
+
+
+                <label>Phone</label>
+
+                <input
+                    type="text"
+                    name="phone"
+                    placeholder="Enter phone number"
+                >
+
+
+                <button type="submit" class="submit-btn">
+                    Add Student
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            © 2026 Library Management System | College Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

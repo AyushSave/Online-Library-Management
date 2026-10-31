@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Books - Library Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+{% include 'style.css' %}
+</style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            📚 My Library
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="/students">Students</a>
+            </li>
+
+            <li>
+                <a href="/books">Books</a>
+            </li>
+
+            <li>
+                <a href="/add_book">Add Book</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- Books Section -->
+
+    <section class="students-section">
+
+        <div class="students-container">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Book Records</h1>
+
+                    <p>
+                        View and manage all library books.
+                    </p>
+
+                </div>
+
+                <a href="/add_book" class="add-btn">
+                    + Add Book
+                </a>
+
+            </div>
+
+
+            <!-- Books Table -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Book Title</th>
+
+                            <th>Author</th>
+
+                            <th>Category</th>
+
+                            <th>Quantity</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% if books %}
+
+                            {% for book in books %}
+
+                            <tr>
+
+                                <td>
+                                    {{ book['id'] }}
+                                </td>
+
+                                <td>
+                                    {{ book['title'] }}
+                                </td>
+
+                                <td>
+                                    {{ book['author'] }}
+                                </td>
+
+                                <td>
+                                    {{ book['category'] }}
+                                </td>
+
+                                <td>
+                                    {{ book['quantity'] }}
+                                </td>
+
+                                <td>
+
+                                    <a
+                                        href="/delete_book/{{ book['id'] }}"
+                                        class="delete-btn"
+                                        onclick="return confirm('Are you sure you want to delete this book?');"
+                                    >
+                                        Delete
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <tr>
+
+                                <td colspan="6" class="no-data">
+
+                                    No books added yet.
+
+                                </td>
+
+                            </tr>
+
+                        {% endif %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Library Management System | College Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

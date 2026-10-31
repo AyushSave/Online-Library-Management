@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Library Management System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+{% include 'style.css' %}
+</style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            📚 My Library
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="/books">Books</a>
+            </li>
+
+            <li>
+                <a href="/students">Students</a>
+            </li>
+
+            <li>
+                <a href="/issue_book">Issue Book</a>
+            </li>
+
+            <li>
+                <a href="/issued_books">Issued Books</a>
+            </li>
+
+            <li>
+                <a href="/add_student">Add Student</a>
+            </li>
+
+            <li>
+                <a href="/add_book">Add Book</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Library Management System
+            </h1>
+
+            <p>
+                Manage books, students, book issues
+                and returns easily in one place.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="/books"
+                   class="btn">
+
+                    📚 Explore Books
+
+                </a>
+
+
+                <a href="/add_student"
+                   class="btn secondary">
+
+                    👨‍🎓 Add Student
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Dashboard -->
+
+    <section class="features">
+
+        <h2>
+            Library Dashboard
+        </h2>
+
+
+        <div class="feature-container">
+
+
+            <!-- Books -->
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    📚
+                </div>
+
+                <h3>
+                    Books
+                </h3>
+
+                <p>
+                    Total Books:
+                    <strong>
+                        {{ book_count }}
+                    </strong>
+                </p>
+
+                <br>
+
+                <a href="/books"
+                   class="add-btn">
+
+                    View Books
+
+                </a>
+
+            </div>
+
+
+            <!-- Students -->
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    👨‍🎓
+                </div>
+
+                <h3>
+                    Students
+                </h3>
+
+                <p>
+                    Registered Students:
+                    <strong>
+                        {{ student_count }}
+                    </strong>
+                </p>
+
+                <br>
+
+                <a href="/students"
+                   class="add-btn">
+
+                    View Students
+
+                </a>
+
+            </div>
+
+
+            <!-- Issue Book -->
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    📖
+                </div>
+
+                <h3>
+                    Issue Books
+                </h3>
+
+                <p>
+                    Issue books to students
+                    and maintain records.
+                </p>
+
+                <br>
+
+                <a href="/issue_book"
+                   class="add-btn">
+
+                    Issue Book
+
+                </a>
+
+            </div>
+
+
+            <!-- Issued Books -->
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    📋
+                </div>
+
+                <h3>
+                    Issued Records
+                </h3>
+
+                <p>
+                    Currently Issued:
+                    <strong>
+                        {{ issued_count }}
+                    </strong>
+                </p>
+
+                <br>
+
+                <a href="/issued_books"
+                   class="add-btn">
+
+                    View Records
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- Quick Actions -->
+
+    <section class="features">
+
+        <h2>
+            Quick Actions
+        </h2>
+
+
+        <div class="hero-buttons">
+
+            <a href="/add_book"
+               class="btn">
+
+                ➕ Add Book
+
+            </a>
+
+
+            <a href="/add_student"
+               class="btn">
+
+                ➕ Add Student
+
+            </a>
+
+
+            <a href="/issue_book"
+               class="btn">
+
+                📖 Issue Book
+
+            </a>
+
+
+            <a href="/issued_books"
+               class="btn secondary">
+
+                📋 Issued Books
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Library Management System |
+            College Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+[project]
+name = "online-library-management"
+version = "1.0.0"
+dependencies = [
+    "flask>=3.0.0",
+]
+
+[tool.vercel]
+entrypoint = "api/index.py"

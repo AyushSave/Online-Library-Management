@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Issue Book - Library Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+{% include 'style.css' %}
+</style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            📚 My Library
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="/students">Students</a>
+            </li>
+
+            <li>
+                <a href="/books">Books</a>
+            </li>
+
+            <li>
+                <a href="/issue_book">Issue Book</a>
+            </li>
+
+            <li>
+                <a href="/issued_books">Issued Books</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- Issue Book Form -->
+
+    <section class="form-section">
+
+        <div class="form-container">
+
+            <h1>Issue Book</h1>
+
+            <p class="form-description">
+                Select a student and available book.
+            </p>
+
+
+            <form method="POST"
+                  action="/issue_book">
+
+
+                <!-- Student -->
+
+                <label>Select Student</label>
+
+                <select name="student_id" required>
+
+                    <option value="">
+                        -- Select Student --
+                    </option>
+
+                    {% for student in students %}
+
+                    <option value="{{ student['id'] }}">
+
+                        {{ student['name'] }}
+                        - Roll No: {{ student['roll_no'] }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+
+                <!-- Book -->
+
+                <label>Select Book</label>
+
+                <select name="book_id" required>
+
+                    <option value="">
+                        -- Select Book --
+                    </option>
+
+                    {% for book in books %}
+
+                    <option value="{{ book['id'] }}">
+
+                        {{ book['title'] }}
+                        - Available: {{ book['quantity'] }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+
+                <!-- Issue Date -->
+
+                <label>Issue Date</label>
+
+                <input
+                    type="date"
+                    name="issue_date"
+                    required
+                >
+
+
+                <!-- Due Date -->
+
+                <label>Due Date</label>
+
+                <input
+                    type="date"
+                    name="due_date"
+                    required
+                >
+
+
+                <!-- Submit -->
+
+                <button type="submit"
+                        class="submit-btn">
+
+                    📖 Issue Book
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            © 2026 Library Management System | College Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

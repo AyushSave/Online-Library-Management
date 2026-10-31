@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Book - Library Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+{% include 'style.css' %}
+</style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            📚 My Library
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="/students">Students</a>
+            </li>
+
+            <li>
+                <a href="/books">Books</a>
+            </li>
+
+            <li>
+                <a href="/add_student">Add Student</a>
+            </li>
+
+            <li>
+                <a href="/add_book">Add Book</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- Add Book Form -->
+
+    <section class="form-section">
+
+        <div class="form-container">
+
+            <h1>Add New Book</h1>
+
+            <p class="form-description">
+                Enter the book information below.
+            </p>
+
+
+            <form method="POST" action="/add_book">
+
+                <label>Book Title</label>
+
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Enter book title"
+                    required
+                >
+
+
+                <label>Author</label>
+
+                <input
+                    type="text"
+                    name="author"
+                    placeholder="Enter author name"
+                    required
+                >
+
+
+                <label>Category</label>
+
+                <input
+                    type="text"
+                    name="category"
+                    placeholder="Example: Programming"
+                    required
+                >
+
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    name="quantity"
+                    placeholder="Enter quantity"
+                    min="1"
+                    required
+                >
+
+
+                <button type="submit" class="submit-btn">
+                    Add Book
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Library Management System | College Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

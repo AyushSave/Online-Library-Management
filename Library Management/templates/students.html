@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Students - Library Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+{% include 'style.css' %}
+</style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            📚 My Library
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="/students">Students</a>
+            </li>
+
+            <li>
+                <a href="/books">Books</a>
+            </li>
+
+            <li>
+                <a href="/add_student">Add Student</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- Students Section -->
+
+    <section class="students-section">
+
+        <div class="students-container">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Student Records</h1>
+
+                    <p>
+                        View and manage registered students.
+                    </p>
+
+                </div>
+
+                <a href="/add_student" class="add-btn">
+                    + Add Student
+                </a>
+
+            </div>
+
+
+            <!-- Student Table -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Student Name</th>
+
+                            <th>Roll Number</th>
+
+                            <th>Course</th>
+
+                            <th>Email</th>
+
+                            <th>Phone</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% if students %}
+
+                            {% for student in students %}
+
+                            <tr>
+
+                                <td>
+                                    {{ student['id'] }}
+                                </td>
+
+                                <td>
+                                    {{ student['name'] }}
+                                </td>
+
+                                <td>
+                                    {{ student['roll_no'] }}
+                                </td>
+
+                                <td>
+                                    {{ student['course'] }}
+                                </td>
+
+                                <td>
+                                    {{ student['email'] }}
+                                </td>
+
+                                <td>
+                                    {{ student['phone'] }}
+                                </td>
+
+                                <td>
+
+                                    <a
+                                        href="/delete_student/{{ student['id'] }}"
+                                        class="delete-btn"
+                                        onclick="return confirm('Are you sure you want to delete this student?');"
+                                    >
+                                        Delete
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <tr>
+
+                                <td colspan="7" class="no-data">
+
+                                    No students registered yet.
+
+                                </td>
+
+                            </tr>
+
+                        {% endif %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Library Management System | College Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
